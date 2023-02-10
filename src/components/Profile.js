@@ -32,7 +32,7 @@ export default function Profile() {
         headers: { Authorization: `Bearer ${token}` }
         };       
         axios.get( 
-          `${process.env.BASE_URL}/api/profile`,
+          `${process.env.REACT_APP_API_URL}/profile`,
           config
         ).then((data)=>{
           setUser(data.data.user)
@@ -43,41 +43,41 @@ export default function Profile() {
         getUserDetails();
     },[])
   return (
-    <div class="page-content page-container" id="page-content">
+    <div className="page-content page-container" id="page-content">
       <ToastContainer />
-      <div class="padding">
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-xl-12 col-md-12">
-            <div class="card user-card-full">
-              <div class="row m-l-0 m-r-0">
-                <div class="col-sm-4 bg-c-lite-green user-profile">
-                  <div class="card-block text-center text-white">
-                    <div class="m-b-25">
+      <div className="padding">
+      <div className="container">
+        <div className="row d-flex justify-content-center">
+          <div className="col-xl-12 col-md-12">
+            <div className="card user-card-full">
+              <div className="row m-l-0 m-r-0">
+                <div className="col-sm-4 bg-c-lite-green user-profile">
+                  <div className="card-block text-center text-white">
+                    <div className="m-b-25">
                       <img
                         src="https://img.icons8.com/bubbles/100/000000/user.png"
-                        class="img-radius"
+                        className="img-radius"
                         alt="User-Profile-Image"
                       />
                     </div>
-                    <h6 class="f-w-600">{user.name}</h6>
+                    <h6 className="f-w-600">{user.name}</h6>
                     <p>{user.role}</p>
                     <button className="btn" onClick={handleLogout}>Logout</button>
                   </div>
                 </div>
-                <div class="col-sm-8">
-                  <div class="card-block">
-                    <h6 class="m-b-20 p-b-5 b-b-default f-w-600">
+                <div className="col-sm-8">
+                  <div className="card-block">
+                    <h6 className="m-b-20 p-b-5 b-b-default f-w-600">
                       Information
                     </h6>
-                    <div class="row">
-                      <div class="col-sm-12">
-                        <p class="m-b-10 f-w-600">Email</p>
-                        <h6 class="text-muted f-w-400">{user.email}</h6>
+                    <div className="row">
+                      <div className="col-sm-12">
+                        <p className="m-b-10 f-w-600">Email</p>
+                        <h6 className="text-muted f-w-400">{user.email}</h6>
                       </div>
-                      <div class="col-sm-12">
-                        <p class="m-b-10 f-w-600">Name</p>
-                        <h6 class="text-muted f-w-400">{user.name}</h6>
+                      <div className="col-sm-12">
+                        <p className="m-b-10 f-w-600">Name</p>
+                        <h6 className="text-muted f-w-400">{user.name}</h6>
                       </div>
                     </div>
                   </div>

@@ -10,7 +10,6 @@ export default function Login() {
   const navigate = useNavigate();
   const [email, setEmail] =useState("");
   const [password, setPassword] = useState("");
-  const [showHidePw, setshowHidePw] = useState(false);
   const handleSubmit = async (e) =>{
       e.preventDefault();
       if(password === '' && email === '')
@@ -25,7 +24,7 @@ export default function Login() {
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data,
-        url: `${process.env.BASE_URL}/api/login`
+        url: `${process.env.REACT_APP_API_URL}/login`
       };
       const response = await axios(options);
       console.log(response)
@@ -56,18 +55,16 @@ export default function Login() {
   const togglePassword =()=>{
     if(passwordType==="password")
     {
-      setshowHidePw(true)
      setPasswordType("text")
      return;
     }
-    setshowHidePw(false)
     setPasswordType("password")
   }
 
   return (
-    <div class="container_box">
+    <div className="container_box">
       <ToastContainer />
-      <div class="forms">
+      <div className="forms">
         <div className="form login">
           <span className="title">Login</span>
           <form onSubmit={handleSubmit}>
@@ -92,7 +89,7 @@ export default function Login() {
             <div className="checkbox-text">
               <div className="checkbox-content">
                 <input type="checkbox" id="logCheck" />
-                <label for="logCheck" className="text">
+                <label htmlFor="logCheck" className="text">
                   Remember me
                 </label>
               </div>

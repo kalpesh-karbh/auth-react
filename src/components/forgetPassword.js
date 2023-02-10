@@ -21,7 +21,7 @@ export default function Login() {
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data,
-        url: `${process.env.BASE_URL}/api/forget-password`
+        url: `${process.env.REACT_APP_API_URL}/forget-password`
       };
       const response = await axios(options);
       console.log(response)
@@ -40,9 +40,9 @@ export default function Login() {
   }
 
   return (
-    <div class="container_box">
+    <div className="container_box">
       <ToastContainer />
-      <div class="forms">
+      <div className="forms">
         <div className="form login">
           <span className="title">Forget Password</span>
           <form onSubmit={handleSubmit}>

@@ -10,7 +10,6 @@ export default function Login() {
   const navigate = useNavigate();
   const [password, setPassword] = useState("");
   const [confirmPassword, setconfirmPassword] = useState("");
-  const [showHidePw, setshowHidePw] = useState(false);
   const token = localStorage.getItem("resetToken");
   const email = localStorage.getItem("userEmail");
   
@@ -33,7 +32,7 @@ export default function Login() {
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data,
-        url: `${process.env.BASE_URL}/api/reset-password`
+        url: `${process.env.REACT_APP_API_URL}/reset-password`
       };
       const response = await axios(options);
       console.log(response)
@@ -54,11 +53,9 @@ export default function Login() {
   const togglePassword =()=>{
     if(passwordType==="password")
     {
-      setshowHidePw(true)
      setPasswordType("text")
      return;
     }
-    setshowHidePw(false)
     setPasswordType("password")
   }
   const checkAuth = () =>{
@@ -71,9 +68,9 @@ export default function Login() {
     checkAuth()
   },[])
   return (
-    <div class="container_box">
+    <div className="container_box">
       <ToastContainer />
-      <div class="forms">
+      <div className="forms">
         <div className="form login">
           <span className="title">Reset Password</span>
           <form onSubmit={handleSubmit}>

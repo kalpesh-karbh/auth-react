@@ -26,7 +26,7 @@ export default function Register() {
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data,
-        url: `${process.env.BASE_URL}/api/register`
+        url: `${process.env.REACT_APP_API_URL}/register`
       };
       const response = await axios(options);
       if (!response.data.success)
@@ -42,40 +42,40 @@ export default function Register() {
       }
   }
   return (
-    <div class="container_box active">
+    <div className="container_box active">
       <ToastContainer />
-      <div class="forms">
-        <div class="form signup">
-              <span class="title">Registration</span>
+      <div className="forms">
+        <div className="form signup">
+              <span className="title">Registration</span>
               <form onSubmit={handleSubmit}>
-                  <div class="input-field">
+                  <div className="input-field">
                       <input type="text" placeholder="Enter your name" value={name} onChange={(e)=>{setName(e.target.value)}}/>
-                      <i class="uil uil-user"></i>
+                      <i className="uil uil-user"></i>
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                       <input type="text" placeholder="Enter your email"  value={email} onChange={(e)=>{setEmail(e.target.value)}}/>
-                      <i class="uil uil-envelope icon"></i>
+                      <i className="uil uil-envelope icon"></i>
                   </div>
-                  <div class="input-field">
+                  <div className="input-field">
                     <select name="role" onChange={(e)=>{setRole(e.target.value)}}>
                       <option disabled selected>Select Role Type</option>
                       <option value={"admin"}>Admin</option>
                       <option value={"user"}>User</option>
                     </select>
                   </div>
-                  <div class="input-field">
-                      <input type="password" class="password" placeholder="Create a password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
-                      <i class="uil uil-lock icon"></i>
+                  <div className="input-field">
+                      <input type="password" className="password" placeholder="Create a password" value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
+                      <i className="uil uil-lock icon"></i>
                   </div>
 
-                  <div class="input-field button">
+                  <div className="input-field button">
                       <input type="submit" value="Signup" />
                   </div>
               </form>
 
-              <div class="login-signup">
-                  <span class="text">Already a member?
-                      <Link to="/login" class="text login-link">Login Now</Link>
+              <div className="login-signup">
+                  <span className="text">Already a member?
+                      <Link to="/login" className="text login-link">Login Now</Link>
                   </span>
               </div>
           </div>
