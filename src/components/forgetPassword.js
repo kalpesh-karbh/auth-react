@@ -21,7 +21,7 @@ export default function Login() {
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data,
-        url: `${process.env.HOST}/api/forget-password`
+        url: `${process.env.BASE_URL}/api/forget-password`
       };
       const response = await axios(options);
       console.log(response)

@@ -25,7 +25,7 @@ export default function Login() {
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data,
-        url: `${process.env.HOST}/api/login`
+        url: `${process.env.BASE_URL}/api/login`
       };
       const response = await axios(options);
       console.log(response)

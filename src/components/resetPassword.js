@@ -33,7 +33,7 @@ export default function Login() {
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data,
-        url: `${process.env.HOST}/api/reset-password`
+        url: `${process.env.BASE_URL}/api/reset-password`
       };
       const response = await axios(options);
       console.log(response)
