@@ -27,7 +27,6 @@ export default function Login() {
         url: `${process.env.REACT_APP_API_URL}/login`
       };
       const response = await axios(options);
-      console.log(response)
       if (!response.data.success)
       {
         toast.error(response.data.error, {autoClose:10000})  
