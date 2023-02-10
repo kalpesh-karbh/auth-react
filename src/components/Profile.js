@@ -32,7 +32,7 @@ export default function Profile() {
         headers: { Authorization: `Bearer ${token}` }
         };       
         axios.get( 
-          'http://localhost:4000/api/profile',
+          `${process.env.HOST}/api/profile`,
           config
         ).then((data)=>{
           setUser(data.data.user)

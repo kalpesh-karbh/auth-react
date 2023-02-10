@@ -26,7 +26,7 @@ export default function Register() {
         method: 'POST',
         headers: { 'content-type': 'application/x-www-form-urlencoded' },
         data,
-        url: 'http://localhost:4000/api/register'
+        url: `${process.env.HOST}/api/register`
       };
       const response = await axios(options);
       if (!response.data.success)
